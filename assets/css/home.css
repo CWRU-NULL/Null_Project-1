@@ -30,7 +30,7 @@ ul {
 }
 
 #ranking {
-    width: 550px;
+    width: 44%;
     height: 350px;
     float: left;
     background-color: white;
@@ -41,7 +41,7 @@ ul {
 }
 
 #map {
-    width: 550px;
+    width: 44%;
     height: 350px;
     margin-right: 5%;
     padding-top: 0px;
