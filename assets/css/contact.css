@@ -1,0 +1,56 @@
+body {
+    text-align: center;
+}
+
+ul { 
+    list-style-type: none;
+}
+
+a:link{
+    color:purple;
+}
+a:visited {
+    color: purple;
+}
+a:hover {
+    color: purple;
+}
+a:visited {
+    color: purple;
+}
+
+.jumbotron {
+    padding-bottom: 25px;
+    padding-top: 5px;
+    background-color: white;
+    color: purple;
+    z-index: 1 !important;
+    opacity: 0.9;
+}
+
+.name {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: purple;
+    text-align: center;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 600% !important;
+
+}
+
+.form-jumbotron {
+	background-color: white;
+	margin-right: 100px;
+    margin-left: 100px;
+    padding-left: 50px;
+    padding-right: 50px;
+    text-align: left;
+    border-radius: 25px;
+    color: black;
+}
+.back-button {
+    color: purple;
+    vertical-align: text-bottom;
+    font-size: 15px;
+    font-family: 'Permanent Marker', cursive;
+}

@@ -1,0 +1,82 @@
+h1 {
+	margin-top: 0px;
+    margin-bottom: 0px;
+    font-family: 'Capriola', sans-serif;
+    text-align: center;
+}
+
+table {
+    border-style: hidden;
+}
+
+ul { 
+    list-style-type: none;
+}
+
+a:link{
+    color:purple;
+}
+a:visited {
+    color: purple;
+}
+a:hover {
+    color: purple;
+}
+a:visited {
+    color: purple;
+}
+.name {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: purple;
+    text-align: center;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 600% !important;
+
+}
+
+.jumbotron {
+    padding-bottom: 25px;
+    padding-top: 5px;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    background-color: white;
+    color: purple;
+    z-index: 1 !important;
+    opacity: 0.9;
+}
+
+.col-md-12 {
+	padding-left: 0px;
+    padding-right: 0px;
+}
+
+.container {
+    width: 100%;
+}
+
+.venue-list {
+    background-color: white;
+    margin-right: 7%;
+    margin-left: 7%;
+    opacity: 0.9;
+}
+
+.venue {
+    border-bottom: 5px solid purple;
+    background-color: white;
+    color: purple;
+}
+
+
+.btn-block {
+    background-color: transparent;
+    border: 5px transparent;
+}
+
+.back-button {
+    color: purple;
+    vertical-align: text-bottom;
+    font-size: 15px;
+    font-family: 'Permanent Marker', cursive;
+}

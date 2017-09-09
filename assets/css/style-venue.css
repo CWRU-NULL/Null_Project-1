@@ -1,0 +1,128 @@
+.head a:link {
+    color: purple;
+}
+
+.head a:visited {
+    color: purple;
+}
+
+.head a:hover {
+    color: purple;
+}
+
+.head a:visited {
+    color: purple;
+}
+
+.name {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: purple;
+    text-align: center;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 600% !important;
+}
+
+
+.jumbotron {
+    padding-bottom: 25px;
+    padding-top: 5px;
+    background-color: white;
+    color: purple;
+    z-index: 1 !important;
+    opacity: 0.9;
+}
+
+#bar-name {
+    text-align: center;
+    font-family: 'Capriola', sans-serif;
+    color: purple;
+}
+
+p,
+li {
+    color: purple;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+h4 {
+    color: purple;
+    font-weight: bold;
+}
+
+.container {
+    max-width: 1200px;
+}
+
+#heading {
+    padding: 15px;
+    margin-top: 10px;
+}
+
+#nav-collapse {
+    padding: 15px;
+}
+
+.nav-list {
+    color: purple !important;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.card {
+    z-index: 1 !important;
+    opacity: 0.9;
+    padding: 20px;
+    background-color: white;
+    margin-bottom: 26px;
+}
+
+.card-title {
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+#map {
+    height: 300px;
+    width: 100%;
+}
+
+#map-card {
+    opacity: 1.0;
+    padding: 0px;
+}
+
+#outer-card {
+    border-style: solid;
+    border-width: 2px;
+    opacity: 1.0;
+    margin-bottom: 20px;
+}
+
+ul {
+    margin-left: 25px;
+    list-style-type: none;
+}
+
+.btn {
+    background-color: purple;
+    color: white;
+    font-weight: bold;
+}
+
+.review {
+    border-bottom: 5px solid purple;
+    color: purple !important;
+}
+
+.back-button {
+    color: purple;
+    vertical-align: text-bottom;
+    font-size: 15px;
+    font-family: 'Permanent Marker', cursive;
+}
+
+.screen-name {
+    font-style: bold;
+}
