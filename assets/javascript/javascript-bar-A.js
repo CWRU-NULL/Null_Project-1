@@ -96,6 +96,7 @@ $.ajax({
 
   })
 
+//snapshot for check-ins
   database.ref().on('value', function(snapshot){
 
     $("#checks1").html(": " + snapshot.val().bar1.checks)
@@ -103,18 +104,6 @@ $.ajax({
   })
 
 
-  //initial review values bar1
-
-  var userReview1= "";
-  var userName1= "";
-  var userReview2= "";
-  var userName2= "";
-  var userReview3= "";
-  var userName3= "";
-  var userReview4= "";
-  var userName4= "";
-  var userReview5= "";
-  var userName5= "";
 
 
 //venue 1 review
@@ -130,61 +119,65 @@ $.ajax({
     var userRating1 = $("#rating1").val().trim();
     var userCrowd1 = $("#crowd1").val().trim();
 
+
+    //push data to database
     database.ref("bar1/reviews/").push({
       review: userReview1,
       name:userName1,
+      rating: userRating1,
       dateAdded: firebase.database.ServerValue.TIMESTAMP
     });
 
     database.ref("bar1/mostRecent/").push({
       music: userMusic1,
-      rating: userRating1,
       crowd: userCrowd1
     });
 
-    var reviewDiv = $("<div>");
+    childRef.endAt().limitToLast(1).on('child_added', function(snapshot){
 
-  
+    name = snapshot.val().name;
+    rating = snapshot.val().rating;
+    review = snapshot.val().review;
 
-    
+  var reviewDiv = $("<div>");
 
- //   var currentState = "<p>" + userRating1 + "<p>" + "<br>" + "<p>" + userMusic1 + "<p>"
-   // "<p>" + userCrowd1 + "<p>";
+    reviewDiv.attr("class", "review");
 
-    
+    reviewTxt = "<br>" + "<p class='screen-name'>" + "User: " + name + "</p>"  + 
+    "<p>" + "Rating: " + rating + "</p>" +"<p>" + "Review: " + review+ "</p>";
 
-    //$("#currentState").append(currentState);
+    reviewDiv.append(reviewTxt);
 
-  })
-
-database.ref().on('value', function(snapshot){
-
-    $("#checks1").html(snapshot.val().bar1.check1);
+    $("#reviewBody").prepend(reviewDiv);
 
   });
 
-//database.ref().on("child_added", function(childSnapshot, prevChildKey){
+});    
 
- // database.ref().on('value', function(snapshot){
 
-   var childRef = database.ref().child("bar1/reviews/");
+//snapshots for reviews and experience data
 
-   var name = ""//childSnapshot.val().bar1.reviews.name;
-    var review = ""
+var childRef = database.ref().child("bar1/reviews/");
+var childRef2 = database.ref().child("bar1/mostRecent/")
 
-   childRef.once('value', function(snapshot){
-    snapshot.forEach(function(child){
-    console.log(child.val().name);
+var name = ""; 
+var review = "";
+var crowd ="";
+var music = "";
+
+childRef.once('value', function(snapshot){
+  snapshot.forEach(function(child){
     name = child.val().name;
     review = child.val().review;
+    rating = child.val().rating;
+
 
     var reviewDiv = $("<div>");
 
     reviewDiv.attr("class", "review");
 
-    reviewTxt = "<p class='screen-name'>" +  name  + ": " + "<p>"  + "<p>" + review+ "<p>";
-
-    
+    reviewTxt = "<br>" + "<p class='screen-name'>" + "User: " + name + "</p>"  + 
+    "<p>" + "Rating: " + rating + "</p>" +"<p>" + "Review: " + review+ "</p>";
 
     reviewDiv.append(reviewTxt);
 
@@ -194,20 +187,13 @@ database.ref().on('value', function(snapshot){
 
    });
 
+childRef2.endAt().limitToFirst(1).on('child_added', function(snapshot){
 
+  music = snapshot.val().music;
+  crowd = snapshot.val().crowd;
 
-    //var test = snapshot.val().name;
-    //console.log(test);
-    //console.log(test);
-
-    //var name = ""//childSnapshot.val().bar1.reviews.name;
-    //var review = snapshot.val().review;
-
-    console.log(name);
-    console.log(review);
-
-   
-
-   // });
+  $("#recCrowd1").text(": " + crowd);
+  $("#recMusic1").text(": " + music);
+})
 
 

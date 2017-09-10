@@ -62,3 +62,137 @@ $.ajax({
   $("#temp").html("Temp: "+ Math.round(far));
 
 });
+
+
+//--------------------------------------------
+
+//review logic/button-click data
+
+
+// Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBeruKEJb8ribgo0RQ-2xNZtMTTfgkg8Oc",
+    authDomain: "whatshappening-de47f.firebaseapp.com",
+    databaseURL: "https://whatshappening-de47f.firebaseio.com",
+    projectId: "whatshappening-de47f",
+    storageBucket: "whatshappening-de47f.appspot.com",
+    messagingSenderId: "101836224675"
+  };
+
+  firebase.initializeApp(config);
+
+  var database = firebase.database(); 
+                         
+
+
+  $("#ven1").on('click', function(){
+
+    var bar3check = firebase.database().ref("bar3/checks/")
+    
+    bar3check.transaction(function(updateCheck){
+      return updateCheck +1;
+    })
+
+  })
+
+//snapshot for check-ins
+  database.ref().on('value', function(snapshot){
+
+    $("#checks1").html(": " + snapshot.val().bar3.checks)
+
+  })
+
+
+
+
+//venue 1 review
+
+  $("#reviewBtn1").on('click', function(event){
+
+    event.preventDefault();
+
+    //capture button clicks
+    var userReview1 = $("#review1").val().trim();
+    var userName1 = $("#name1").val().trim();
+    var userMusic1 = $("#music1").val().trim();
+    var userRating1 = $("#rating1").val().trim();
+    var userCrowd1 = $("#crowd1").val().trim();
+
+
+    //push data to database
+    database.ref("bar3/reviews/").push({
+      review: userReview1,
+      name:userName1,
+      rating: userRating1,
+      dateAdded: firebase.database.ServerValue.TIMESTAMP
+    });
+
+    database.ref("bar3/mostRecent/").push({
+      music: userMusic1,
+      crowd: userCrowd1
+    });
+
+  childRef.endAt().limitToLast(1).on('child_added', function(snapshot){
+
+  name = snapshot.val().name;
+  rating = snapshot.val().rating;
+  review = snapshot.val().review;
+
+  var reviewDiv = $("<div>");
+
+    reviewDiv.attr("class", "review");
+
+    reviewTxt = "<br>" + "<p class='screen-name'>" + "User: " + name + "</p>"  + 
+    "<p>" + "Rating: " + rating + "</p>" +"<p>" + "Review: " + review+ "</p>";
+
+    reviewDiv.append(reviewTxt);
+
+    $("#reviewBody").prepend(reviewDiv);
+})
+
+
+  })
+
+
+//snapshots for reviews and experience data
+
+var childRef = database.ref().child("bar3/reviews/");
+var childRef2 = database.ref().child("bar3/mostRecent/")
+
+var name = ""; 
+var review = "";
+var crowd ="";
+var music = "";
+
+
+childRef.once('value', function(snapshot){
+  snapshot.forEach(function(child){
+    name = child.val().name;
+    review = child.val().review;
+    rating = child.val().rating;
+
+
+    var reviewDiv = $("<div>");
+
+    reviewDiv.attr("class", "review");
+
+    reviewTxt = "<br>" + "<p class='screen-name'>" + "User: " + name + "</p>"  + 
+    "<p>" + "Rating: " + rating + "</p>" +"<p>" + "Review: " + review+ "</p>";
+
+    reviewDiv.append(reviewTxt);
+
+    $("#reviewBody").prepend(reviewDiv);
+
+    });
+
+   });
+
+
+childRef2.endAt().limitToFirst(1).on('child_added', function(snapshot){
+
+  music = snapshot.val().music;
+  crowd = snapshot.val().crowd;
+
+  $("#recCrowd1").text(": " + crowd);
+  $("#recMusic1").text(": " + music);
+})
