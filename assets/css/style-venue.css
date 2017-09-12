@@ -127,6 +127,7 @@ ul {
     font-style: bold;
 }
 
+<<<<<<< HEAD
 .slideshow-side {
     background-color: white;
     padding: 1%;
@@ -178,4 +179,8 @@ img {
     92% {
         opacity: 0;
     }
+=======
+.ts{
+    font-style: italic;
+>>>>>>> 189ff6e6294b7985671a4258e5518bb858bcf51e
 }
