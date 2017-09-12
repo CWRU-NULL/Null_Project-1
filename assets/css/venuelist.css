@@ -61,6 +61,11 @@ a:visited {
     margin-left: 7%;
     opacity: 0.9;
 }
+.info {
+    background-color: white;
+    color: purple;
+    opacity: 0.9;
+}
 
 .venue {
     border-bottom: 5px solid purple;
@@ -79,4 +84,7 @@ a:visited {
     vertical-align: text-bottom;
     font-size: 15px;
     font-family: 'Permanent Marker', cursive;
+}
+.slidshow {
+    background-color: white;
 }

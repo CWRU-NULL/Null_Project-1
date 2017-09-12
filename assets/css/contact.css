@@ -54,3 +54,23 @@ a:visited {
     font-size: 15px;
     font-family: 'Permanent Marker', cursive;
 }
+.btn {
+    background-color: purple;
+    color: white !important;
+}
+.submit-txt {
+    color: purple !important;
+}
+.home-btn {
+    background-color: purple;
+    color: white !important;
+}
+#map {
+    width: 90%;
+    height: 450px;
+    margin-right: 5%;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    float: right;
+    background-color: white;
+}
