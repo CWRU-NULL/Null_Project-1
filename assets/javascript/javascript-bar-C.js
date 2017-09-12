@@ -154,6 +154,13 @@ $.ajax({
     reviewDiv.append(reviewTxt);
 
     $("#reviewBody").prepend(reviewDiv);
+
+    $("#review1").val('');
+    $("#name1").val('');
+    $("#music1").val('');
+    $("#rating1").val('');
+    $("#crowd1").val('');
+    
   });
 });
 
