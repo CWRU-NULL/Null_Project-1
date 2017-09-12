@@ -126,3 +126,7 @@ ul {
 .screen-name {
     font-style: bold;
 }
+
+.ts{
+    font-style: italic;
+}

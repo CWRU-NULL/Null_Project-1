@@ -137,13 +137,18 @@ $.ajax({
   name = snapshot.val().name;
   rating = snapshot.val().rating;
   review = snapshot.val().review;
+  date = snapshot.val().dateAdded;
 
-  var reviewDiv = $("<div>");
+  var timestamp = moment(date).format("dddd, MMMM Do YYYY, h:mm:ss a");
+    
+
+
+    var reviewDiv = $("<div>");
 
     reviewDiv.attr("class", "review");
 
     reviewTxt = "<br>" + "<p class='screen-name'>" + "User: " + name + "</p>"  + 
-    "<p>" + "Rating: " + rating + "</p>" +"<p>" + "Review: " + review+ "</p>";
+    "<p>" + "Rating: " + rating + "</p>" +"<p>" + "Review: " + review + "</p>" + "<p class='ts'>" + timestamp + "</p>";
 
     reviewDiv.append(reviewTxt);
 
@@ -170,6 +175,12 @@ childRef.once('value', function(snapshot){
     name = child.val().name;
     review = child.val().review;
     rating = child.val().rating;
+    date = child.val().dateAdded;
+
+
+
+    var timestamp = moment(date).format("dddd, MMMM Do YYYY, h:mm:ss a");
+    
 
 
     var reviewDiv = $("<div>");
@@ -177,12 +188,11 @@ childRef.once('value', function(snapshot){
     reviewDiv.attr("class", "review");
 
     reviewTxt = "<br>" + "<p class='screen-name'>" + "User: " + name + "</p>"  + 
-    "<p>" + "Rating: " + rating + "</p>" +"<p>" + "Review: " + review+ "</p>";
+    "<p>" + "Rating: " + rating + "</p>" +"<p>" + "Review: " + review + "</p>" + "<p class='ts'>" + timestamp + "</p>";
 
     reviewDiv.append(reviewTxt);
 
     $("#reviewBody").prepend(reviewDiv);
-
     });
 
    });
