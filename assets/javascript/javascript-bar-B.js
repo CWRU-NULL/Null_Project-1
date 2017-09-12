@@ -1,47 +1,4 @@
-
-function initialize() {
-  //Create a map center.
-  var mapOptions = {
-    center: new google.maps.LatLng(41.501019, -81.699425),
-    zoom: 18
-  };
-
-  var map = new google.maps.Map(document.getElementById("map"),mapOptions);
-
-  var marker = new google.maps.Marker({
-    position: new google.maps.LatLng(41.501019, -81.699425),
-    map: map,
-    title:"Tequila Ranch"
-  });
-
-  var request = {
-    placeId: 'ChIJf05SgIfwMIgRnSayuqYeqx0'
-  };
-
-  service = new google.maps.places.PlacesService(map);
-  service.getDetails(request, callback);
-
-  function callback(place, status) {
-    if (status == google.maps.places.PlacesServiceStatus.OK) {
-      console.log("place",place);
-      $("#bar-name").html(place.name);
-      $("#address").html("ADDRESS: " + place.formatted_address);
-      $("#rating").html("GOOGLE RATING: " + place.rating);
-      $("#phone-number").html("PHONE NUMBER: " + place.formatted_phone_number);
-      $("#monday").html(place.opening_hours.weekday_text[0]);
-      $("#tuesday").html(place.opening_hours.weekday_text[1]);
-      $("#wednesday").html(place.opening_hours.weekday_text[2]);
-      $("#thursday").html(place.opening_hours.weekday_text[3]);
-      $("#friday").html(place.opening_hours.weekday_text[4]);
-      $("#saturday").html(place.opening_hours.weekday_text[5]);
-      $("#sunday").html(place.opening_hours.weekday_text[6]);
-    }
-  }
-  
-};
-
-google.maps.event.addDomListener(window, "load", initialize);
-
+//------Weather API Service---------------------------------
 var APIKey = "f393d2f44691c07327a5d4026cd169c9";
 
 var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=Cleveland,USA&appid=" + APIKey;
@@ -50,9 +7,6 @@ $.ajax({
   url: queryURL,
   method: "GET"
 }).done(function(response) {
-
-  console.log(queryURL);
-  console.log(response);
       
   $("#description").html("Description: " + response.weather[0].description);
   $("#wind").html("Wind Speed (mph): " + response.wind.speed);
@@ -91,16 +45,16 @@ $.ajax({
     
     bar2check.transaction(function(updateCheck){
       return updateCheck +1;
-    })
+    });
 
-  })
+  });
 
 //snapshot for check-ins
   database.ref().on('value', function(snapshot){
 
-    $("#checks1").html(": " + snapshot.val().bar2.checks)
-
-  })
+    $("#checks1").html(": " + snapshot.val().bar2.checks);
+    initialize(snapshot.val().bar2.checks);
+  });
 
 
 
@@ -158,9 +112,9 @@ $.ajax({
     $("#rating1").val('');
     $("#crowd1").val('');
 
-  })
+  });
 
-})
+});
 
 
 //snapshots for reviews and experience data
@@ -208,4 +162,67 @@ childRef2.endAt().limitToFirst(1).on('child_added', function(snapshot){
 
   $("#recCrowd1").text(": " + crowd);
   $("#recMusic1").text(": " + music);
-})
+});
+
+
+//---------Initialize Map------------------
+
+function initialize(pinChecks) {
+
+  var pinIcon = "assets/Images/marker_blackB.png";
+
+  if (pinChecks >= 20) {
+    pinIcon = "assets/Images/marker_redB.png";
+  }
+  else if ((pinChecks >= 10) && (pinChecks <20)){
+    pinIcon = "assets/Images/marker_orangeB.png";
+  }
+  else if ((pinChecks >= 5) && (pinChecks <10)){
+    pinIcon = "assets/Images/marker_greenB.png";
+  }
+  else if ((pinChecks >= 1) && (pinChecks <5)){
+    pinIcon = "assets/Images/marker_purpleB.png";
+  }
+  else{
+    pinIcon = "assets/Images/marker_blackB.png";
+  }
+
+  //Create a map center.
+  var mapOptions = {
+    center: new google.maps.LatLng(41.501019, -81.699425),
+    zoom: 18
+  };
+
+  var map = new google.maps.Map(document.getElementById("map"),mapOptions);
+
+  var marker = new google.maps.Marker({
+    position: new google.maps.LatLng(41.501019, -81.699425),
+    map: map,
+    icon: pinIcon,
+    title:"Tequila Ranch"
+  });
+
+  var request = {
+    placeId: 'ChIJf05SgIfwMIgRnSayuqYeqx0'
+  };
+
+  service = new google.maps.places.PlacesService(map);
+  service.getDetails(request, callback);
+
+  function callback(place, status) {
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+      $("#bar-name").html(place.name);
+      $("#address").html("ADDRESS: " + place.formatted_address);
+      $("#rating").html("GOOGLE RATING: " + place.rating);
+      $("#phone-number").html("PHONE NUMBER: " + place.formatted_phone_number);
+      $("#monday").html(place.opening_hours.weekday_text[0]);
+      $("#tuesday").html(place.opening_hours.weekday_text[1]);
+      $("#wednesday").html(place.opening_hours.weekday_text[2]);
+      $("#thursday").html(place.opening_hours.weekday_text[3]);
+      $("#friday").html(place.opening_hours.weekday_text[4]);
+      $("#saturday").html(place.opening_hours.weekday_text[5]);
+      $("#sunday").html(place.opening_hours.weekday_text[6]);
+    }
+  }
+  
+};

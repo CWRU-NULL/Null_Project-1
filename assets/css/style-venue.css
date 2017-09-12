@@ -108,6 +108,7 @@ ul {
     background-color: purple;
     color: white;
     font-weight: bold;
+    border:none;
 }
 
 .review {
@@ -126,60 +127,6 @@ ul {
     font-style: bold;
 }
 
-<<<<<<< HEAD
-.slideshow-side {
-    background-color: white;
-    padding: 1%;
-}
-
-.ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    position: relative;
-}
-
-.li {
-    position: absolute;
-    left: 50%;
-    margin-left: -247px;
-    margin-top: 3%;
-}
-
-img {
-    border: 1px solid #000;
-    border-radius: 3px;
-    box-shadow: 0 0 5px 0 hsla(0, 0%, 30%, .3);
-}
-
-.li:nth-child(4) {
-    animation: xfade 16s 0s infinite;
-}
-
-.li:nth-child(3) {
-    animation: xfade 16s 4s infinite;
-}
-
-.li:nth-child(2) {
-    animation: xfade 16s 8s infinite;
-}
-
-.li:nth-child(1) {
-    animation: xfade 16s 12s infinite;
-}
-
-@keyframes xfade {
-    17% {
-        opacity: 1;
-    }
-    25% {
-        opacity: 0;
-    }
-    92% {
-        opacity: 0;
-    }
-=======
 .ts{
     font-style: italic;
->>>>>>> 189ff6e6294b7985671a4258e5518bb858bcf51e
 }

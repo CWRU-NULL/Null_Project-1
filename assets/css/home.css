@@ -6,6 +6,10 @@ ul {
     list-style-type: none;
 }
 
+.container{
+    margin:auto;
+}
+
 .name {
     margin-top: 0px;
     margin-bottom: 0px;
@@ -30,24 +34,35 @@ ul {
 }
 
 #ranking {
-    width: 44%;
     height: 350px;
-    float: left;
     background-color: white;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    margin-left: 5%;   
-    margin-bottom: 0%;
+    z-index: 1 !important;
+    opacity: 0.9;
+    margin-bottom:25px;
 }
 
 #map {
-    width: 44%;
     height: 350px;
-    margin-right: 5%;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    float: right;
     background-color: white;
+    z-index: 1 !important;
+    opacity: 0.9;
+    margin-bottom:25px;
 }
 
+.btn {
+    background-color: purple;
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+.card-title{
+    margin: 0px;
+    padding: 15px;
+}
 
+p{
+    margin-left: 20px;
+    text-align: left;
+    font-size: 18px;
+    font-weight:bold;
+}

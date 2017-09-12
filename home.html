@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>What's Happening Cleveland?</title>
+        <title>What's Happening?</title>
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="assets/css/background.css">
         <link rel="stylesheet" type="text/css" href="assets/css/home.css">
@@ -19,25 +19,44 @@
             </ul>
         </div>
         <br/><br/><br/>
+
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
                 <h1 class="name">What's Happening Cleveland</h1>
                 <br/>
-                <p class="description" style="color: black;">This is a modified jumbotron that occupies the entire horizontal space of its parent.This is a modified jumbotron that occupies the entire horizontal space of its parent.This is a modified jumbotron that occupies the entire horizontal space of its parent.This is a modified jumbotron that occupies the entire horizontal space of its parent.This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+                <p class="description" style="color: black;">This is a modified jumbotron that occupies the entire horizontal space of its parent.This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
             </div>
-            <a type="button" class="btn btn-left btn-success" href="venuelist.html">Venues</a>
-            <a type="button" class="btn btn-success" href="contact.html">Contact Us</a>
+            <a type="button" class="btn btn-left btn-primary" href="venuelist.html">Venues</a>
+            <a type="button" class="btn btn-primary" href="contact.html">Contact Us</a>
         </div>
-        <div id="container">
-            <div class="jumbotron jumbotron-fluid" id="ranking">
-                <br/>
-                <p style="color: black; font-size: 25px;">Rankings</p>
-            </div>
 
-            <div class="jumbotron jumbotron-fluid" id="map">
+		<div class="row">
+        	<div class="container">
+
+        		<div class ="col-md-6">
+					<div class= "card">
+			            <div class="card-body" id="map">
+			            </div>
+		            </div>
+		        </div>
+
+        		<div class = "col-md-6">
+					<div class = "card">
+			            <div class="card-body" id="ranking">
+			                <h2 class="card-title">Rankings</h2>
+                            <p><img src="assets/Images/marker_black.png" alt="Black_Icon"> Dead: 0 Recent Check-Ins</p>
+                            <p><img src="assets/Images/marker_purple.png" alt="Black_Icon"> A Couple People: 1-5 Recent Check-Ins</p>
+                            <p><img src="assets/Images/marker_green.png" alt="Black_Icon"> Picking up: 5-10 Recent Check-Ins</p>
+                            <p><img src="assets/Images/marker_orange.png" alt="Black_Icon"> Nice Crowd: 10-20 Recent Check-Ins</p>
+                            <p><img src="assets/Images/marker_red.png" alt="Black_Icon"> Packed: 20+ Recent Check-Ins</p>
+			            </div>
+			        </div>
+				</div>
+
             </div>
         </div>
         
+        <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
         <script type="text/javascript"
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeruKEJb8ribgo0RQ-2xNZtMTTfgkg8Oc">
         </script>
