@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>What's Happening?</title>
+        <title>What's Happening Cleveland?</title>
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="assets/css/background.css">
         <link rel="stylesheet" type="text/css" href="assets/css/contact.css">
-        <link href="https://fonts.googleapis.com/css?family=Capriola" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
     </head>
     <body>
@@ -32,7 +31,7 @@
                 <h3>CONTACT US</h3>
             </div>
             <br/>
-            <form id="contact-form" method="post" action="contact.html" role="form">
+            <form id="contact-form" role="form" action="" onsubmit="return submitForm()" method="post">  
                 <div class="messages"></div>
                 <div class="controls">
                     <div class="row">
@@ -76,8 +75,8 @@
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <a href="contact_submit.html" type="button" class="btn btn-success">Send Message</a>
-                        </div>
+                            <input type="submit" value="Send Message" class="btn btn-success">
+                        </div>  
                     </div>
                     <div class="row">
                         <div class="col-md-12">
@@ -86,5 +85,8 @@
                 </div>
             </form>
         </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">    
+        </script><script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+        <script type="text/javascript" src="./assets/javascript/javascript-contact.js"></script>
     </body>
 </html>
