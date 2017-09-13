@@ -41,14 +41,6 @@ ul {
     margin-bottom:25px;
 }
 
-#map {
-    height: 350px;
-    background-color: white;
-    z-index: 1 !important;
-    opacity: 0.9;
-    margin-bottom:25px;
-}
-
 .btn {
     background-color: purple;
     color: white;
@@ -65,4 +57,12 @@ p{
     text-align: left;
     font-size: 18px;
     font-weight:bold;
+}
+
+#map{
+    height: 350px;
+    background-color: white;
+    z-index: 1 !important;
+    opacity: 0.9;
+    margin-bottom:25px;
 }
