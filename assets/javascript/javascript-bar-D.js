@@ -9,6 +9,7 @@ $.ajax({
 }).done(function(response) {
 
   $("#description").html("Description: " + response.weather[0].description);
+  $("#icon").attr("src","https://openweathermap.org/img/w/" + response.weather[0].icon +".png");
   
   var mph = (response.wind.speed * 2.2369);
 
