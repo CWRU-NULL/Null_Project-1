@@ -9,7 +9,10 @@ $.ajax({
 }).done(function(response) {
 
   $("#description").html("Description: " + response.weather[0].description);
-  $("#wind").html("Wind Speed (mph): " + response.wind.speed);
+  
+  var mph = (response.wind.speed * 2.2369);
+
+  $("#wind").html("Wind Speed (mph): " + (mph.toFixed(1)));
 
   var far = (((response.main.temp - 273.15)*1.80)+32);
 
