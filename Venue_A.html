@@ -94,48 +94,48 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-body">
-                        <form id="contact-form" method="post" action="contact.php" role="form">
+                        <form id="contact-form" role="form">
                             <div class="messages"></div>
                             <div class="controls">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="name1">Screen Name</label>
-                                            <input id="name1" type="text" name="name" class="form-control" placeholder="Pick A Screen Name" required="required">
+                                            <label for="name1" class="control-label">Screen Name</label>
+                                            <input id="name1" type="text" class="form-control" placeholder="Pick A Screen Name" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="crowd1">Crowd Level Scale of 1-5</label>
-                                            <input id="crowd1" type="text" name="crowd" class="form-control" placeholder="Rate the Crowd on a scale of 1-5" required="required">
+                                            <label for="crowd1" class="control-label">Crowd Level Scale of 1-5</label>
+                                            <input id="crowd1" type="text" class="form-control" placeholder="Rate the Crowd on a scale of 1-5" required>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <div class="form-group">
+                                        <div class="form-group" class="control-label">
                                             <label for="rating1">Overal Rating Scale of 1-5</label>
-                                            <input id="rating1" type="text" name="rating" class="form-control" placeholder="Rate the Overall Experience Scale of 1-5" required="required">
-                                        </div>
+                                            <input id="rating1" type="text" class="form-control" placeholder="Rate the Overall Experience Scale of 1-5" required>
+                                        </div>  
                                     </div>
                                     <div class="col-md-6">
-                                         <div class="form-group">
+                                         <div class="form-group" class="control-label">
                                             <label for="music1">What Type of Music Is Playing</label>
-                                            <input id="music1" type="text" name="music" class="form-control" placeholder="What Type of Music is Currently Playing?">
+                                            <input id="music1" type="text" class="form-control" placeholder="What Type of Music is Currently Playing?" required>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="form-group">
+                                        <div class="form-group" class="control-label">
                                             <label for="review1">Comment</label>
-                                            <textarea id="review1" name="comment" class="form-control" placeholder="Write a Quick Review" rows="4" required="required"></textarea>
+                                            <textarea id="review1" class="form-control" placeholder="Write a Quick Review" rows="4" required></textarea>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <button type="button" class="btn btn-primary" id="reviewBtn1">Submit Review</button> 
+                                        <button type="submit" class="btn btn-primary">Submit Review</button>
                                     </div>
                                 </div>
                             </div>
@@ -154,9 +154,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Added link to the Bootstrap JS -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.js"></script>
     <!-- Added link to the javascript file -->
     <script type="text/javascript" src="./assets/javascript/javascript-bar-A.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+
 </body>
 
 </html>

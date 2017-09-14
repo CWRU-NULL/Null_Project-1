@@ -13,8 +13,8 @@
   
   var database = firebase.database(); 
 
-$('#form').validator().on('submit', function (e) {
-  if (e.isDefaultPrevented()) {
+$('#myForm').validator().on('submit', function (e) {
+  if (e.isDefaultPrevented()) {    
     // handle the invalid form...  
   } else {
     submitForm();
@@ -30,6 +30,15 @@ function submitForm() {
     var phoneNumber = $("#form_phone").val();
     var message = $("#form_message").val();
 
+      //push data to database
+    database.ref("contacts/").push({
+      first_name: firstName,
+      last_name:lastName,
+      email: email,
+      phone_number: phoneNumber,
+      message: message
+
+    });  
     //TODO push data to database  
 
 }
