@@ -45,6 +45,8 @@ $.ajax({
 
   $("#ven1").on('click', function(){
 
+    $(this).hide();
+
     var bar4check = firebase.database().ref("bar4/checks/")
     
     bar4check.transaction(function(updateCheck){

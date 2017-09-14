@@ -44,10 +44,14 @@ $.ajax({
 
   $("#ven1").on('click', function(){
 
+    $(this).hide();
+
     var bar2check = firebase.database().ref("bar5/checks/")
     
     bar2check.transaction(function(updateCheck){
       return updateCheck +1;
+
+
     });
 
   });
