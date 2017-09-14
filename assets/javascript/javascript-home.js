@@ -7,7 +7,7 @@
     storageBucket: "whatshappening-de47f.appspot.com",
     messagingSenderId: "101836224675"
   };
-
+  
   firebase.initializeApp(config);
 
   var database = firebase.database(); 

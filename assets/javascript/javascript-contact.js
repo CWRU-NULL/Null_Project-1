@@ -6,13 +6,22 @@
     storageBucket: "whatshappening-de47f.appspot.com",
     messagingSenderId: "101836224675"
   };
-
-  firebase.initializeApp(config);
-
+    
+  if (!firebase.apps.length) {
+    firebase.initializeApp(config);
+  }  
+  
   var database = firebase.database(); 
 
+$('#form').validator().on('submit', function (e) {
+  if (e.isDefaultPrevented()) {
+    // handle the invalid form...  
+  } else {
+    submitForm();
+  }
+});
 
-function submitForm() {
+function submitForm() {    
 
     //capture button clicks
     var firstName= $("#form_name").val();
@@ -21,14 +30,6 @@ function submitForm() {
     var phoneNumber = $("#form_phone").val();
     var message = $("#form_message").val();
 
+    //TODO push data to database  
 
-    //push data to database
-
-
-   $("#form_name").val('');
-   $("#form_lastname").val('');
-   $("#form_email").val('');
-   $("#form_phone").val('');
-   $("#form_message").val(''); 
-   $(".form-jumbotron").html('<h3>Your application is now pending approval. We will contact you within two buisness days. Thank You!</h3>');
 }

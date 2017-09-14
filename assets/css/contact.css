@@ -54,3 +54,10 @@ a:visited {
     font-size: 15px;
     font-family: 'Permanent Marker', cursive;
 }
+#map{
+    height: 350px;
+    background-color: white;
+    z-index: 1 !important;
+    opacity: 0.9;
+    margin-bottom:25px;
+}
