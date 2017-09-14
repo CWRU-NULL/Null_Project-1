@@ -15,8 +15,41 @@
   var database = firebase.database(); 
 
   var checkInsArray =[];
+  var musicArray=[];
 
   //snapshot for check-ins
+
+  var childRef1 = database.ref().child("bar1/mostRecent/");
+
+  childRef1.endAt().limitToFirst(1).on('child_added',function(snapshot){
+    musicArray.push(snapshot.val().music);
+  });
+
+  var childRef2 = database.ref().child("bar2/mostRecent/");
+
+  childRef2.endAt().limitToFirst(1).on('child_added',function(snapshot){
+    musicArray.push(snapshot.val().music);
+  });
+
+  var childRef3 = database.ref().child("bar3/mostRecent/");
+
+  childRef3.endAt().limitToFirst(1).on('child_added',function(snapshot){
+    musicArray.push(snapshot.val().music);
+  });
+
+  var childRef4 = database.ref().child("bar4/mostRecent/");
+
+  childRef4.endAt().limitToFirst(1).on('child_added',function(snapshot){
+    musicArray.push(snapshot.val().music);
+  });
+
+  var childRef5 = database.ref().child("bar5/mostRecent/");
+
+  childRef5.endAt().limitToFirst(1).on('child_added',function(snapshot){
+    musicArray.push(snapshot.val().music);
+  });
+
+  console.log(musicArray);
 
   database.ref().on('value', function(snapshot){
     checkInsArray.push(snapshot.val().bar1.checks);
@@ -42,24 +75,9 @@ function initialize(id,links,i) {
   function callback(place, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
       console.log("place",place);
+      console.log(links);
 
-      var newRow = $("<tr>");
-
-      var newName = $("<td>");
-      newName.html(place.name);
-      newRow.append(newName);
-
-      var newAddress = $("<td>");
-      newAddress.html(place.formatted_address);
-      newRow.append(newAddress);
-
-      var newRating = $("<td>");
-      newRating.html(place.rating);
-      newRow.append(newRating);
-
-      var newCheck = $("<td>");
-      newCheck.html(checkInsArray[i]);
-      newRow.append(newCheck);
+      var newRow =$("<tr><td class='bar-name'><a href='"+ links +".html'>"+place.name+"</a></td><td><a href='"+ links +".html'>Rating: " + place.rating +" / 5</a></td><td><a href='"+ links +".html'>Check-Ins: " + checkInsArray[i] + "</a></td><td><a href='"+ links +".html'>" + place.formatted_address + "</a></td><td><a href='"+ links +".html'>Type of Music: " + musicArray[i] + "</a></td></tr>");
       // append new row to table
       $("#table-body").append(newRow);
     }
@@ -74,3 +92,13 @@ function runStuff(){
     initialize(placeIds[i],links[i],i);
   }
 };
+
+$(document).ready(function() {
+    $("#example").click(function() {
+        var href = $(this).find("a").attr("href");
+        if(href) {
+            window.location = href;
+        }
+    });
+
+});
