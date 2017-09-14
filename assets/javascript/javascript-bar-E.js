@@ -64,10 +64,18 @@ $.ajax({
   });
 
 
+$('#contact-form').validator().on('submit', function (e) {
+  if (e.isDefaultPrevented()) {    
+    // handle the invalid form...  
+  } else {
+    submitReview();  
+  }
+});
 
 //venue 1 review
 
-  $("#reviewBtn1").on('click', function(event){
+function submitReview(){
+
 
     event.preventDefault();
 
@@ -121,7 +129,7 @@ $.ajax({
     $("#crowd1").val('');
   });
 
-});
+}
 
 
 //snapshots for reviews and experience data
