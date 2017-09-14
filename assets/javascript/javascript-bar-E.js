@@ -39,12 +39,35 @@ $.ajax({
   firebase.initializeApp(config);
 
   var database = firebase.database(); 
+
+  var checked = false;
+
+  //check if user has checked in already this session
+
+  $(document).ready(function(){
+
+  var isChecked = sessionStorage.getItem("checked5");
+
+  console.log(isChecked);
+
+  if (isChecked === "true") {
+    $("#ven1").hide();
+  }
+  else {
+    $("#ven1").show();
+  }
+
+  })
                          
 
 
   $("#ven1").on('click', function(){
 
     $(this).hide();
+
+    checked = true;
+
+    sessionStorage.setItem("checked5", checked);
 
     var bar2check = firebase.database().ref("bar5/checks/")
     

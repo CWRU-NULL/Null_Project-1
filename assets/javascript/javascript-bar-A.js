@@ -28,6 +28,24 @@ $.ajax({
 //review logic/button-click data
 
 
+//check if user has checked in already this session
+
+$(document).ready(function(){
+
+var isChecked = sessionStorage.getItem("checked1");
+
+console.log(isChecked);
+
+if (isChecked === "true") {
+  $("#ven1").hide();
+}
+else {
+  $("#ven1").show();
+}
+
+})
+
+
 // Initialize Firebase
   var config = {
     apiKey: "AIzaSyBeruKEJb8ribgo0RQ-2xNZtMTTfgkg8Oc",
@@ -41,10 +59,19 @@ $.ajax({
   firebase.initializeApp(config);
 
   var database = firebase.database(); 
+
+  var checked = false;
+
                          
 
 
   $("#ven1").on('click', function(){
+
+    $(this).hide();
+
+    checked = true;
+
+    sessionStorage.setItem("checked1", checked);
 
     var bar1check = firebase.database().ref("bar1/checks/")
     
